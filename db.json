@@ -54,14 +54,6 @@
       "name": "Blazin' Inferno",
       "toppings": [
         {
-          "id": 10,
-          "name": "pepperoni"
-        },
-        {
-          "id": 9,
-          "name": "pepper"
-        },
-        {
           "id": 3,
           "name": "basil"
         },
@@ -70,12 +62,16 @@
           "name": "chili"
         },
         {
-          "id": 7,
-          "name": "olive"
-        },
-        {
           "id": 2,
           "name": "bacon"
+        },
+        {
+          "id": 9,
+          "name": "pepper"
+        },
+        {
+          "id": 7,
+          "name": "olive"
         }
       ],
       "id": 1
