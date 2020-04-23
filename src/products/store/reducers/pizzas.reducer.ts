@@ -1,9 +1,8 @@
-import * as fromPizza from '../actions/pizzas.actions';
-import { Pizza } from '../../models/pizza.model'
-
+import { Pizza } from 'src/products/models/pizza.model';
+import * as fromPizzas from '../actions/pizzas.actions';
 
 export interface PizzaState {
-  entities: { [id: number] :Pizza};
+  entities: any;
   loaded: boolean;
   loading: boolean;
 }
@@ -16,48 +15,61 @@ export const initialState: PizzaState = {
 
 export function reducer(
   state = initialState,
-  action: fromPizza.PizzasAction
-): PizzaState{
+  action: fromPizzas.PizzasAction
+): PizzaState {
+  console.log('reducer')
   switch(action.type){
-    case fromPizza.LOAD_PIZZAS: {
+    case fromPizzas.LOAD_PIZZAS: {
       return {
         ...state,
         loading: true
       }
-    }
-
-    case fromPizza.LOAD_PIZZAS_SUCCESS: {
-      console.log("LOAD PIZZA SUCCESS", action.payload);
-      const pizzas = action.payload;
-
-      const entities = pizzas.reduce((entities: { [id: number]: Pizza }, pizza: Pizza) => {
-        return {
-          ...entities,
+    };
+    case fromPizzas.LOAD_PIZZAS_SUCCESS: {
+      const data = action.payload;
+      const entities = data.reduce((entities: {[id: number]: Pizza}, pizza: Pizza) => {
+        const entity = {
           [pizza.id]: pizza
-        };
+        }
+        return {...entities, ...entity}
       }, {
         ...state.entities
       })
+
+      console.log(entities)
+
       return {
         ...state,
         loading: false,
         loaded: true,
         entities
       }
-    }
-
-    case fromPizza.LOAD_PIZZAS_FAIL: {
+    };
+    case fromPizzas.LOAD_PIZZAS_FAIL: {
       return {
         ...state,
         loading: false,
-        loaded: false 
+        loaded: false
       }
-    }
+    };
+    case fromPizzas.CREATE_PIZZA_SUCCESS:
+    case fromPizzas.UPDATE_PIZZA_SUCCESS: {
+      const pizza: Pizza = action.payload;
+      const entities = {
+        ...state.entities,
+        [pizza.id]: pizza
+      }
+      return {
+        ...state,
+        entities
+      }
+    };
   }
-  return state;
+
+  return state; // przy pierwszym zwrocie --> Initial State
 }
 
+// skróty dla selectorów
 export const getPizzasEntities = (state: PizzaState) => state.entities;
 export const getPizzasLoading = (state: PizzaState) => state.loading;
 export const getPizzasLoaded = (state: PizzaState) => state.loaded;
-
