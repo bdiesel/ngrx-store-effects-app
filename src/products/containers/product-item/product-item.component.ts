@@ -46,20 +46,6 @@ export class ProductItemComponent implements OnInit {
     )
     this.toppings$ = this.store.select(fromStore.getAllToppings);
     this.visualise$ = this.store.select(fromStore.getPizzaVisulaised);
-    // this.pizzaService.getPizzas().subscribe(pizzas => {
-    //   const param = this.route.snapshot.params.id;
-    //   let pizza;
-    //   if (param === 'new') {
-    //     pizza = {};
-    //   } else {
-    //     pizza = pizzas.find(pizza => pizza.id == parseInt(param, 10));
-    //   }
-    //   this.pizza = pizza;
-    //   this.toppingsService.getToppings().subscribe(toppings => {
-    //     this.toppings = toppings;
-    //     this.onSelect(toppings.map(topping => topping.id));
-    //   });
-    // });
   }
 
   onSelect(event: number[]) {
@@ -77,7 +63,7 @@ export class ProductItemComponent implements OnInit {
   onRemove(event: Pizza) {
     const remove = window.confirm('Are you sure?');
     if (remove) {
-
+      this.store.dispatch(new fromStore.RemovePizza(event));
     }
   }
 }
