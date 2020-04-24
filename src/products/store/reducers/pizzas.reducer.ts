@@ -17,7 +17,6 @@ export function reducer(
   state = initialState,
   action: fromPizzas.PizzasAction
 ): PizzaState {
-  console.log('reducer')
   switch(action.type){
     case fromPizzas.LOAD_PIZZAS: {
       return {
@@ -35,8 +34,6 @@ export function reducer(
       }, {
         ...state.entities
       })
-
-      console.log(entities)
 
       return {
         ...state,
