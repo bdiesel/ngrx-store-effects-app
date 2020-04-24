@@ -44,8 +44,8 @@ export class ProductItemComponent implements OnInit {
         this.onSelect(toppingsIds);
       })
     )
-    // this.toppings$ = this.store.select(fromStore.getAllToppings);
-    // this.visualise$ = this.store.select(fromStore.getVisualizedPizza);
+    this.toppings$ = this.store.select(fromStore.getAllToppings);
+    this.visualise$ = this.store.select(fromStore.getPizzaVisulaised);
     // this.pizzaService.getPizzas().subscribe(pizzas => {
     //   const param = this.route.snapshot.params.id;
     //   let pizza;
