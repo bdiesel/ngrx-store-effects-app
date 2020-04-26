@@ -15,7 +15,7 @@ import * as fromComponents from './components';
 // containers
 import * as fromContainers from './containers';
 
-//guards
+// guards
 import * as fromGuards from './guards';
 
 // services
