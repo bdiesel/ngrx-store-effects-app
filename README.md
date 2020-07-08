@@ -1,22 +1,3 @@
-<h1 align="center">
-<img width="40" valign="bottom" src="https://ultimatecourses.com/static/icons/ngrx.svg">
-NGRX: Store + Effects app
-</h1>
-<h4 align="center">Project seed app for our NGRX application using Angular, NGRX Store, Effects, Router Store.</h4>
-
----
-
-<a href="https://ultimatecourses.com" target="_blank"><img src="https://ultimatecourses.com/static/banners/ultimate-ngrx-leader.svg"></a>
-
----
-
-> This repo serves as the seed project for the Ultimate Angular NGRX Store +
-> Effects course as well as the final solution in stepped branches, come and
-> [learn NGRX](https://ultimatecourses.com/learn/ngrx-store-effects) with us!
-
-[Setup and install](#setup-and-install) | [Tasks](#tasks) |
-[Resources](#resources)
-
 ## Setup and install
 
 Fork this repo from inside GitHub so you can commit directly to your account, or
